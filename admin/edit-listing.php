@@ -141,6 +141,23 @@ $accessory_types = array('Cars','Bikes','Trucks','Boats','Motorsports');
                         </select>
                       </div>
                     </div>
+                       <div class="col-sm-6 col-md-4" id="dealership_id_block">
+                      <div class="ui_kit_select_search add_new_property mb20">
+                        <label class="form-label">Dealership</label>
+                        <select class="selectpicker_12" name="dealership_id" data-live-search="true" data-width="100%">
+                          <option value="0">Select</option>
+                          <?php
+                          $select = "select * from dealerships  order by title asc ";
+                            $q_run =  mysqli_query($con,$select);
+                            if(mysqli_num_rows($q_run)>0){
+                                while($data_cat =  mysqli_fetch_assoc($q_run)){
+                                        echo "<option value='".$data_cat['id']."'>".DBout($data_cat['title'])."</option>";
+                                    }
+                            }
+                          ?>
+                        </select>
+                      </div>
+                    </div>
                     <div class="col-sm-6 col-md-4">
                       <div class="ui_kit_select_search add_new_property mb20">
                         <label class="form-label">Make</label>
@@ -166,7 +183,6 @@ $accessory_types = array('Cars','Bikes','Trucks','Boats','Motorsports');
                           <option value="0">Select</option>
                             <?php
                           $select = "select * from models  order by title asc ";
-                           // $select = "select * from models order by title asc";
                             $q_run =  mysqli_query($con,$select);
                             if(mysqli_num_rows($q_run)>0){
                                 while($data_cat =  mysqli_fetch_assoc($q_run)){
@@ -557,6 +573,9 @@ $(document).ready(function() {
     $('.selectpicker_10').selectpicker();
     $('.selectpicker_10').selectpicker('val', '<?php echo $data['city_id']; ?>');
     
+       /** dealership_id **/
+    $('.selectpicker_12').selectpicker();
+    $('.selectpicker_12').selectpicker('val', '<?php echo $data['dealership_id']; ?>');
     
     document.getElementById('pro-image').addEventListener('change', readImage, false);
     $( ".preview-images-zone" ).sortable();

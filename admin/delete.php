@@ -12,6 +12,16 @@ if(isset($_GET['cmd'])){
                 header("Location:categories.php");        
             }
     }
+      if($_GET['cmd']=="dealership"){ // Delete CATEGORY
+            $delete = "delete from dealerships where id='".$_GET['id']."'";
+            if(mysqli_query($con,$delete)){
+                  $_SESSION['succes_sc'] = "<b>Success:</b> Dealership deleted successfully.";
+                    header("Location:dealerships.php");    
+            }else{
+                $_SESSION['error_ocr'] = "<b>Error:</b> An error occurred. Please try again.";
+                header("Location:dealerships.php");        
+            }
+    }
     if($_GET['cmd']=="user"){ // Delete CATEGORY
             $delete = "delete from users where id='".$_GET['id']."'";
             if(mysqli_query($con,$delete)){

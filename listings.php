@@ -329,17 +329,6 @@
                       </div>
                     </div>
                   </li>
-                  
-                  <!--<li class="min_area list-inline-item">
-                    <div class="form-group">
-                      <input type="text" name="min" value="<?php if(isset($_GET['min'])){ echo $_GET['min']; } ?>" class="form-control" placeholder="Min">
-                    </div>
-                  </li>
-                  <li class="max_area list-inline-item">
-                    <div class="form-group">
-                      <input type="text" name="max" value="<?php if(isset($_GET['max'])){ echo $_GET['max']; } ?>" class="form-control" placeholder="Max">
-                    </div>
-                  </li>-->
                   <li><h5 class="subtitle">Price ($)</h5></li>
                   <li>
                     <div class="slider-range"></div>
@@ -452,19 +441,6 @@
               <div class="col-xl-7">
                 <div class="page_control_shorting right_area text-end tac-lg">
                   <ul>
-                    <!--<li class="list-inline-item mb10-400"> <a id="open2" class="filter_open_btn style2 dn db-md" href="#"><img class="mr10" src="images/icon/filter-icon.svg" alt="filter-icon.svg"> Filters</a> </li>
-                    <li class="list-inline-item short_by_text listone">Sort by:</li>
-                    <li class="list-inline-item listwo">
-                      <select class="selectpicker show-tick">
-                        <option>Date: newest First</option>
-                        <option>Most Recent</option>
-                        <option>Recent</option>
-                        <option>Best Selling</option>
-                        <option>Old Review</option>
-                      </select>
-                    </li>-->
-                    <!--<li class="list-inline-item list-gird"><a href="#"><img src="images/icon/list-grid.svg" alt="list-grid.svg"></a></li>
-                    <li class="list-inline-item list-list"><a href="#"><img src="images/icon/list-list.svg" alt="list-list.svg"></a></li>-->
                   </ul>
                 </div>
               </div>
@@ -502,16 +478,10 @@
                     }
                     ?>
                   <div class="thmb_cntnt2">
-                    <!--<ul class="mb0">
-                      <li class="list-inline-item"><a class="text-white" href="#"><span class="flaticon-photo-camera mr3"></span> 22</a></li>
-                      <li class="list-inline-item"><a class="text-white" href="#"><span class="flaticon-play-button mr3"></span> 3</a></li>
-                    </ul>-->
+
                   </div>
                   <div class="thmb_cntnt3">
-                    <!--<ul class="mb0">
-                      <li class="list-inline-item"><a href="#"><span class="flaticon-shuffle-arrows"></span></a></li>
-                      <li class="list-inline-item"><a href="#"><span class="flaticon-heart"></span></a></li>
-                    </ul>-->
+        
                   </div>
                 </div>
                 <div class="details">
@@ -526,12 +496,6 @@
                     <h6 class="title"><?php echo DBout($data['listing_title']); ?></h6>
                       <div class="listign_review">
                         <ul class="mb0">
-                          <!--<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                          <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                          <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                          <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                          <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                          <li class="list-inline-item"><a href="#">4.7</a></li>-->
                           <li class="list-inline-item">(<?php echo $data['visit_count']; ?> Views)</li>
                         </ul>
                       </div>
@@ -550,8 +514,7 @@
                                 <?php
                                 }
                                 ?>
-                                <!--<li class="list-inline-item"><a href="#"><span class="flaticon-gas-station me-2"></span>Diesel</a></li>-->
-                                <!--<li class="list-inline-item"><a href="#"><span class="flaticon-gear me-2"></span>Automatic</a></li>-->
+                       
                               </ul>
                         </div>
                 </div>

@@ -41,6 +41,46 @@ if(isset($_POST['cmd'])){
             }
         }
     }
+
+     if($_POST['cmd']=="add_dealership"){ //! ADD DEALERSHIP
+        if(!isset($_POST['id'])){ //INSERT
+            $image_name = "";
+            if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=""){
+                $image_name = time().$_FILES['image']['name'];
+                move_uploaded_file($_FILES["image"]["tmp_name"], "dealership_images/".$image_name);
+            }
+            if(isset($_POST['title']) && $_POST['title']!=""){
+                    $insert = "insert into dealerships (title,image,ratings) values('".DBin($_POST['title'])."','".$image_name."','".DBin($_POST['ratings'])."')";
+                    if(mysqli_query($con,$insert)){
+                          $_SESSION['succes_sc'] = "<b>Success:</b> Dealership created successfully.";
+                            header("Location:dealerships.php");    
+                    }else{
+                        $_SESSION['error_ocr'] = "<b>Error:</b> An error occurred. Please try again.";
+                    header("Location:add_dealership.php");        
+                    }
+            }else{
+                $_SESSION['error_ocr'] = "<b>Error:</b> Title is required. Please enter title.";
+                header("Location:add_dealership.php");   
+            }
+        }else{ // UPDATE VALUE
+            $image_name = "";
+            if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=""){
+                $image_name = time().$_FILES['image']['name'];
+                move_uploaded_file($_FILES["image"]["tmp_name"], "cat_images/".$image_name);
+            }else{
+                $image_name = $_POST['image_hidden_val'];    
+            }
+            $update = "update dealerships set title='".DBin($_POST['title'])."', image='$image_name', ratings='".DBin($_POST['ratings'])."' where id='".$_POST['id']."'";
+            if(mysqli_query($con,$update)){
+                  $_SESSION['succes_sc'] = "<b>Success:</b> Dealership updated successfully.";
+                    header("Location:edit_dealership.php?id=".$_POST['id']);    
+            }else{
+                $_SESSION['error_ocr'] = "<b>Error:</b> An error occurred. Please try again.";
+                header("Location:edit_dealership.php?id=".$_POST['id']);        
+            }
+        }
+    }
+
     if($_POST['cmd']=="add_maker"){ // ADD Maker
         if(!isset($_POST['id'])){ //INSERT
             $image_name = "";
@@ -196,7 +236,6 @@ if(isset($_POST['cmd'])){
         if(!isset($_POST['id'])){ //INSERT
             $images_url = array();
             if(isset($_POST['images_url'])){
-               // $images_url = json_encode($_POST['images_url']);
                foreach($_POST['images_url'] as $key=>$val){
                     $img = base64_images_to_save($val);
                     $images_url[] = $img;
@@ -204,18 +243,37 @@ if(isset($_POST['cmd'])){
             }
             
             $features = json_encode($_POST['features']);
+            $reviewRatings = json_encode($_POST['ReviewRatings']);
+            // $FAQS = json_encode($_POST['FAQS']);
+
+          if(isset($_POST['mileage']) && $_POST['mileage']!="")
+            {
+                $mileage = $_POST['mileage'];
+            }
+            else
+            {
+                $mileage = 0;
+            }
+
+            $cylinders = isset($_POST['cylinders']) ? $_POST['cylinders'] : '0';
+            echo $cylinders;
             $want_featured = isset($_POST['want_featured']) ? 1 : 0;
 
-            $insert = "insert into listings (user_id,listing_title,listing_condition,category_id,maker_id,model_id,body_type_id,price,model_year,
-            transmission,mileage,engine_size,cylinders,color,city_id,name,cardNumber,expiry,securityCode,address,description,images_url,features,want_featured)
-            values('".$_POST['user_id']."','".DBin($_POST['listing_title'])."','".$_POST['listing_condition']."','".$_POST['category_id']."',
-            '".$_POST['maker_id']."','".$_POST['model_id']."','".$_POST['body_type_id']."','".$_POST['price']."','".$_POST['model_year']."',
-            '".$_POST['transmission']."','".$_POST['mileage']."','".$_POST['engine_size']."','".$_POST['cylinders']."','".$_POST['color']."',
-            '".$_POST['city_id']."','".DBin($_POST['name'])."','".convert_uuencode($_POST['cardNumber'])."','".($_POST['expiry'])."','".convert_uuencode($_POST['securityCode'])."','".DBin($_POST['address'])."','".DBin($_POST['description'])."','".json_encode($images_url)."','$features',
-            '".$want_featured."'
-            )";
-             echo $insert;
-            // echo $_POST['want_featured'];
+        $insert = "INSERT INTO listings (user_id, listing_title, listing_condition, dealership_id, category_id, maker_id, model_id, body_type_id, price, model_year, doors, seats, feulType,
+            transmission, mileage, engine_size, cylinders, color, city_id, name, cardNumber, expiry, securityCode, address, description,
+            Reliability, Safety, Interior, Performance, RunningCost, ReviewRatings,questions,answers,
+            audioSE,exterior,interiorSE,illumination,driverAssistance,performanceSE,safetySecurity,
+             images_url, features, want_featured)
+            VALUES ('".$_POST['user_id']."', '".DBin($_POST['listing_title'])."', '".$_POST['listing_condition']."', '".$_POST['dealership_id']."', '".$_POST['category_id']."',
+            '".$_POST['maker_id']."', '".$_POST['model_id']."', '".$_POST['body_type_id']."', '".$_POST['price']."', '".$_POST['model_year']."', '".$_POST['doors']."', '".$_POST['seats']."', '".$_POST['feulType']."',
+            '".$_POST['transmission']."', '$mileage', '".$_POST['engine_size']."', '$cylinders', '".$_POST['color']."',
+            '".$_POST['city_id']."', '".DBin($_POST['name'])."', '".convert_uuencode($_POST['cardNumber'])."', '".$_POST['expiry']."', '".convert_uuencode($_POST['securityCode'])."', '".DBin($_POST['address'])."', '".DBin($_POST['description'])."',
+            '".DBin($_POST['Reliability'])."', '".DBin($_POST['RunningCost'])."', '".DBin($_POST['Safety'])."', '".DBin($_POST['Interior'])."', '".DBin($_POST['Performance'])."', '$reviewRatings',
+            '".json_encode($_POST['questions'])."','".json_encode($_POST['answers'])."',
+            '".json_encode($_POST['audioSE'])."','".json_encode($_POST['exterior'])."','".json_encode($_POST['interiorSE'])."','".json_encode($_POST['illumination'])."','".json_encode($_POST['driverAssistance'])."','".json_encode($_POST['performanceSE'])."','".json_encode($_POST['safetySecurity'])."',
+            '".json_encode($images_url)."', '$features', '$want_featured')";
+            
+echo $insert; // Debugging statement to check the generated query
             if(mysqli_query($con,$insert)){
                 $last_id = mysqli_insert_id($con);
                 $_SESSION['succes_sc'] = "<b>Success:</b> Listing created successfully.";
@@ -279,6 +337,24 @@ if(isset($_POST['cmd'])){
             if(isset($_POST['features'])){
                 $features = json_encode($_POST['features']);
             }
+             $accessory_type = "";
+            if(isset($_POST['accessory_type'])){
+                $accessory_type = $_POST['accessory_type'];
+            }
+             $service_type = "";
+            if(isset($_POST['service_type'])){
+                $service_type = $_POST['service_type'];
+            }
+
+               $maker_id = 0;
+            if(isset($_POST['maker_id'])){
+                $maker_id = $_POST['maker_id'];
+            }
+              $cylinders = 4;
+            if(isset($_POST['cylinders'])){
+                $cylinders = $_POST['cylinders'];
+            }
+            
             /****VERIFICATION FILE***/
             $veri_file = "";
             if(isset($_FILES['veri_file']['name']) && $_FILES['veri_file']['name']!=""){
@@ -287,10 +363,11 @@ if(isset($_POST['cmd'])){
             }
             
             
-            $update = "update listings set listing_title='".DBin($_POST['listing_title'])."',listing_condition='".$_POST['listing_condition']."',category_id='".$_POST['category_id']."',
-            maker_id='".$_POST['maker_id']."',model_id='".$_POST['model_id']."',body_type_id='".$_POST['body_type_id']."',price='".$_POST['price']."',model_year='".$_POST['body_type_id']."',
+            $update = "update listings set listing_title='".DBin($_POST['listing_title'])."',listing_condition='".$_POST['listing_condition']."',dealership_id='".$_POST['dealership_id']."',category_id='".$_POST['category_id']."',
+            maker_id='$maker_id',model_id='".$_POST['model_id']."',body_type_id='".$_POST['body_type_id']."',price='".$_POST['price']."',model_year='".$_POST['body_type_id']."',
             transmission='".$_POST['transmission']."',
-            mileage='".$_POST['mileage']."',engine_size='".$_POST['engine_size']."',cylinders='".$_POST['cylinders']."',color='".$_POST['color']."',accessory_type='".$_POST['accessory_type']."',service_type='".$_POST['service_type']."',city_id='".$_POST['city_id']."',
+            doors='".$_POST['doors']."',seats='".$_POST['seats']."',feulType='".$_POST['feulType']."',
+            mileage='".$_POST['mileage']."',engine_size='".$_POST['engine_size']."',cylinders='$cylinders',color='".$_POST['color']."',accessory_type='$accessory_type',service_type='$service_type',city_id='".$_POST['city_id']."',
             address='".DBin($_POST['address'])."',description='".DBin($_POST['description'])."', 
             images_url='".json_encode($img_array_merge)."', features='$features',verification_file='$veri_file' where id='".$_POST['id']."'";
               if(mysqli_query($con,$update)){

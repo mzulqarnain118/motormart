@@ -10,6 +10,7 @@
                 ?>
                 <li><a class="<?php if($filename=="users.php"){ echo "active"; } ?>" href="users.php"><span class="fa-solid fa-user fa-fw"></span></span>Users</a></li>
                 <li><a class="<?php if($filename=="categories.php"){ echo "active"; } ?>" href="categories.php"><span class="fa-solid fa-list fa-fw"></span>Categories</a></li>
+                                <li><a class="<?php if($filename=="dealerships.php"){ echo "active"; } ?>" href="dealerships.php"><span class="fa-solid fa-list fa-fw"></span>Dealerships</a></li>
                 <li><a class="<?php if($filename=="maker.php"){ echo "active"; } ?>" href="maker.php"><span class="fa-solid fa-list fa-fw"></span>Maker</a></li>
                 <li><a class="<?php if($filename=="models.php"){ echo "active"; } ?>" href="models.php"><span class="fa-solid fa-list fa-fw"></span>Models</a></li>
                 <li><a class="<?php if($filename=="body_type.php"){ echo "active"; } ?>" href="body_type.php"><span class="fa-solid fa-list fa-fw"></span>Body Type</a></li>

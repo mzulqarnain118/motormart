@@ -57,6 +57,7 @@ if(isset($filename)){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="auto, car, car dealer, car dealership, car listing, cars, classified, dealership, directory, listing, modern, motors, responsive">
 <meta name="description" content="BERMUDA MOTORING MART">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <meta name="CreativeLayers" content="ATFN">
 <!-- css file -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -115,6 +116,7 @@ if(isset($filename)){
               <li class="list-inline-item"><a href="#"><span class="flaticon-phone-call"></span>1-800-458-56987</a></li>
               <li class="list-inline-item"><a href="#"><span class="flaticon-map"></span>152 Northshore Road, Permoke, Bermuda HM11</a></li>
               <li class="list-inline-item"><a href="#"><span class="flaticon-clock"></span>Business Hours: 24/7 </a></li>
+              <li class="list-inline-item"><a href="pricing.php"><span class="fi fi-rr-tags"></span>Pricing </a></li>
             </ul>
           </div>
         </div>
@@ -177,16 +179,6 @@ if(isset($filename)){
         <!-- Responsive Menu Structure-->
         <ul id="respMenu" class="ace-responsive-menu text-end" data-menu-style="horizontal">
           <li> <a href="index.php"><span class="title">Home</span></a>
-            <!-- Level Two-->
-            <!--<ul>
-              <li><a href="index-2.html">Home V1</a></li>
-              <li><a href="index2.html">Home V2</a></li>
-              <li><a href="index3.html">Home V3</a></li>
-              <li><a href="index4.html">Home V4</a></li>
-              <li><a href="index5.html">Home V5</a></li>
-              <li><a href="index6.html">Home V6</a></li>
-              <li><a href="index7.html">Home V7</a></li>
-            </ul>-->
           </li>
           <li> <a href="listings.php"><span class="title">Cars</span></a>
             <!-- Level Two-->
@@ -194,13 +186,12 @@ if(isset($filename)){
              <?php
               $inc_qry = mysqli_query($con,"select id,title from categories where cat_type='Cars' order by title asc");
                 while($data_cat =  mysqli_fetch_assoc($inc_qry)){
-                  /*if(isset($_GET['category_id']) && $_GET['category_id'] == $data_cat['id']){
-                        echo "<option selected='selected' value='".$data_cat['id']."'>".DBout($data_cat['title'])."</option>";
-                    }*/
                     if($data_cat['title']=="New Cars"){
                         echo '<li> <a href="new.php" >New Cars</a></li>';
                     }else if($data_cat['title']=="Used Cars"){
                         echo '<li> <a href="listings.php?condition=Used" >Used Cars</a></li>';
+                    }else if($data_cat['title']=="New Cars (Dealership)"){
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }else{
                      echo "<li> <a href='listings.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }
@@ -224,6 +215,8 @@ if(isset($filename)){
                         echo '<li> <a href="bike_listings.php?condition=New" >New Bikes</a></li>';
                     }else if($data_cat['title']=="Used Cars"){
                         echo '<li> <a href="bike_listings.php?condition=Used" >Used Bikes</a></li>';
+                    }else if($data_cat['title']=="New Bikes (Dealership)"){
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }else{
                      echo "<li> <a href='bike_listings.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }
@@ -244,7 +237,7 @@ if(isset($filename)){
                         echo "<option selected='selected' value='".$data_cat['id']."'>".DBout($data_cat['title'])."</option>";
                     }*/
                     if($data_cat['title']=="New Boats"){
-                        echo '<li> <a href="boats_listings.php?condition=New" >New Boats</a></li>';
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])." (Dealership)</a></li>";   
                     }else if($data_cat['title']=="Used Boats"){
                         echo '<li> <a href="boats_listings.php?condition=Used" >Used Boats</a></li>';
                     }else{
@@ -262,16 +255,12 @@ if(isset($filename)){
                <?php
               $inc_qry = mysqli_query($con,"select id,title from categories where cat_type='Trucks' order by title asc");
                 while($data_cat =  mysqli_fetch_assoc($inc_qry)){
-                  /*if(isset($_GET['category_id']) && $_GET['category_id'] == $data_cat['id']){
-                        echo "<option selected='selected' value='".$data_cat['id']."'>".DBout($data_cat['title'])."</option>";
-                    }*/
-                    /*if($data_cat['title']=="New Boats"){
-                        echo '<li> <a href="boats_listings.php?condition=New" >New Boats</a></li>';
-                    }else if($data_cat['title']=="Used Boats"){
-                        echo '<li> <a href="boats_listings.php?condition=Used" >Used Boats</a></li>';
-                    }else{ */
+                    if($data_cat['title']=="New TrucksÂ (Dealership)"){
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";  
+                    } 
+                   else{ 
                      echo "<li> <a href='trucks_listings.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
-                    //}
+                    }
                 }
               ?>
             </ul>
@@ -374,13 +363,12 @@ if(isset($filename)){
              <?php
               $inc_qry = mysqli_query($con,"select id,title from categories where cat_type='Cars' order by title asc");
                 while($data_cat =  mysqli_fetch_assoc($inc_qry)){
-                  /*if(isset($_GET['category_id']) && $_GET['category_id'] == $data_cat['id']){
-                        echo "<option selected='selected' value='".$data_cat['id']."'>".DBout($data_cat['title'])."</option>";
-                    }*/
                     if($data_cat['title']=="New Cars"){
                         echo '<li> <a href="new.php" >New Cars</a></li>';
                     }else if($data_cat['title']=="Used Cars"){
                         echo '<li> <a href="listings.php?condition=Used" >Used Cars</a></li>';
+                    }else if($data_cat['title']=="New Cars (Dealership)"){
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }else{
                      echo "<li> <a href='listings.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }
@@ -388,7 +376,7 @@ if(isset($filename)){
               ?>
             </ul>
           </li>
-            <li> <a href="bike_listings.php"><span class="title">Bikes</span></a>
+           <li> <a href="bike_listings.php"><span class="title">Bikes</span></a>
             <!-- Level Two-->
             <ul>
               <!--
@@ -404,6 +392,8 @@ if(isset($filename)){
                         echo '<li> <a href="bike_listings.php?condition=New" >New Bikes</a></li>';
                     }else if($data_cat['title']=="Used Cars"){
                         echo '<li> <a href="bike_listings.php?condition=Used" >Used Bikes</a></li>';
+                    }else if($data_cat['title']=="New Bikes (Dealership)"){
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }else{
                      echo "<li> <a href='bike_listings.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
                     }
@@ -424,7 +414,7 @@ if(isset($filename)){
                         echo "<option selected='selected' value='".$data_cat['id']."'>".DBout($data_cat['title'])."</option>";
                     }*/
                     if($data_cat['title']=="New Boats"){
-                        echo '<li> <a href="boats_listings.php?condition=New" >New Boats</a></li>';
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])." (Dealership)</a></li>";   
                     }else if($data_cat['title']=="Used Boats"){
                         echo '<li> <a href="boats_listings.php?condition=Used" >Used Boats</a></li>';
                     }else{
@@ -442,16 +432,12 @@ if(isset($filename)){
                <?php
               $inc_qry = mysqli_query($con,"select id,title from categories where cat_type='Trucks' order by title asc");
                 while($data_cat =  mysqli_fetch_assoc($inc_qry)){
-                  /*if(isset($_GET['category_id']) && $_GET['category_id'] == $data_cat['id']){
-                        echo "<option selected='selected' value='".$data_cat['id']."'>".DBout($data_cat['title'])."</option>";
-                    }*/
-                    /*if($data_cat['title']=="New Boats"){
-                        echo '<li> <a href="boats_listings.php?condition=New" >New Boats</a></li>';
-                    }else if($data_cat['title']=="Used Boats"){
-                        echo '<li> <a href="boats_listings.php?condition=Used" >Used Boats</a></li>';
-                    }else{ */
+                    if($data_cat['title']=="New TrucksÂ (Dealership)"){
+                     echo "<li> <a href='ListDealerships.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";  
+                    } 
+                   else{ 
                      echo "<li> <a href='trucks_listings.php?category_id=".$data_cat['id']."' >".DBout($data_cat['title'])."</a></li>";   
-                    //}
+                    }
                 }
               ?>
             </ul>

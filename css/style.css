@@ -146,6 +146,11 @@ body {
   -o-transition: all .4s ease;
   transition: all .4s ease;
 }
+
+.newListingPagesFont{
+font-family: Arial, Helvetica, sans-serif !important;
+        background-color:#F5EEFD;
+}
 body.body_overlay{
   position: fixed;
   transform: translate(0, 0);
@@ -13933,11 +13938,13 @@ header.header-nav.menu_style_home_one.dashbord_style{
   margin-bottom: 0;
 }
 .sidebar_widgets{
-  background-color: #F9F9F9;
+  background-color: white;
   border: 1px solid #EAEAEA;
-  border-radius: 8px;
   padding: 30px;
   position: relative;
+}
+.sidebar_widgets:hover{
+  border: 1px solid #7a4397;
 }
 .sidebar_advanced_search_widget .title{
   font-size: 16px;
@@ -13955,6 +13962,9 @@ header.header-nav.menu_style_home_one.dashbord_style{
   letter-spacing: 0em;
   margin-bottom: 20px;
 }
+
+
+
 .sasw_list li{
   margin-bottom: 20px;
 }
@@ -13967,7 +13977,6 @@ header.header-nav.menu_style_home_one.dashbord_style{
 .sasw_list .search_area input{
   background-color: #FFFFFF;
   border: 1px solid #EAEAEA;
-  border-radius: 8px;
   color: #5F6973;
   font-size: 13px;
   font-style: normal;
@@ -13979,7 +13988,7 @@ header.header-nav.menu_style_home_one.dashbord_style{
 .sasw_list .search_area input:hover,
 .sasw_list .search_area input:active,
 .sasw_list .search_area input:focus{
-  border-bottom: 1px solid #EAEAEA;
+  border: 1px solid #7a4397;
 }
 .sasw_list .search_area textarea{
   border: 1px solid rgb(235, 235, 235);
@@ -14008,7 +14017,6 @@ header.header-nav.menu_style_home_one.dashbord_style{
 .sasw_list button.btn.dropdown-toggle{
   background-color: #fff;
   border: 1px solid #EAEAEA;
-  border-radius: 8px;
   color: #5F6973;
   font-size: 13px;
   font-style: normal;
@@ -14016,6 +14024,10 @@ header.header-nav.menu_style_home_one.dashbord_style{
   letter-spacing: 0em;
   padding-left: 20px;
   line-height: 40px;
+}
+
+.sasw_list button.btn.dropdown-toggle:hover{
+  border: 1px solid ##7a4397;
 }
 .sasw_list .bootstrap-select .dropdown-menu li a,
 .custom_dropdown_widget .bootstrap-select .dropdown-menu li a{
@@ -22799,16 +22811,15 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
   -moz-box-shadow:0px 18px 60px rgba(23, 26, 33, 0.05);
   -o-box-shadow:0px 18px 60px rgba(23, 26, 33, 0.05);
   box-shadow:0px 18px 60px rgba(23, 26, 33, 0.05);
+  border: 1px solid #7a4397;
 }
 .category_item.home7_style .details .title{
   margin-bottom: 15px;
 }
 .car-listing{
   background-color: #fff;
-  border: 1px solid #EAEAEA;;
-  border-radius: 8px;
+  border: 1px solid #EAEAEA;
   margin-bottom: 30px;
-  padding: 10px;
   position: relative;
 }
 .car-listing.list_style{
@@ -22819,16 +22830,15 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
   max-width: 260px;
 }
 .car-listing .thumb{
-  border-radius: 8px;
   overflow: hidden;
   position: relative;
   z-index: 0;
 }
 .car-listing:hover .thumb{
-  background: linear-gradient(180deg, rgba(12, 18, 39, 0) 28.42%, rgba(12, 18, 39, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(12, 18, 39, 0) 28.42%, #7A4397 100%);
 }
 .car-listing .thumb:before{
-  background-image: linear-gradient(to bottom, transparent 0%, #0C1227 100%);
+  background-image: linear-gradient(to bottom, transparent 0%, #7A4397 100%);
   bottom: 0;
   content: "";
   height: 100px;
@@ -22875,7 +22885,7 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
   transform: translateY(20px);
 }
 .car-listing .thumb .tag.blue{
-  background-color: #1947E2;
+  background-color: #7a4397;
 }
 .car-listing .thumb img{
   -webkit-transform: scale(1);
@@ -22910,7 +22920,7 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
   letter-spacing: 0em;
 }
 .car-listing:hover .details .title{
-  color: #1947E2;
+  color: #7a4397;
 }
 .car-listing .details .title,
 .car-listing .details .title a{
@@ -22923,7 +22933,7 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
 }
 .car-listing:hover .details .title,
 .car-listing:hover .details .title a{
-  color: #1947E2;
+  color: #7a4397;
 }
 .car-listing .details .listing_footer{
   border-top: 1px solid #EAEAEA;
