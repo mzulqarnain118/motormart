@@ -274,7 +274,7 @@ for ($i = date('Y'); $i > 1989; $i--) {
                       <input name="engine_size" class="form-control form_control" type="text" placeholder="1000cc">
                     </div>
                   </div>
-                  <div class="col-sm-6 col-md-4">
+                  <div class="col-sm-6 col-md-4" id="cylinders-id-block">
                     <div class="ui_kit_select_search add_new_property mb20">
                       <label class="form-label">Cylinders</label>
                       <select class="selectpicker" name="cylinders" data-live-search="true" data-width="100%">
@@ -1042,7 +1042,23 @@ function select_cat_by_cond(id) {
 function category_select(id) {
   if (id == 9 || id == 10 || id == 11 || id == 12) {
     $('#body_type_id').hide();
-  } else {
+  } else if (id == 24) {
+       $("#RunningCost").hide();
+      $("#Performance").hide();
+      $("#Safety").hide();
+      $("#Interior").hide();
+      $("#Reliability").hide();
+      $("#ratings_id_block").hide();
+      $("#faqs_id_block").hide();
+      $("#faq-container").hide();
+      $("#audioSE-container").hide();
+      $("#SE-Sections").hide();
+         $('#seats_id_block').hide();
+      $('#doors_id_block').hide();
+      $('#cylinders-id-block').hide();
+             
+
+  }else {
     $('#body_type_id').show();
   }
 }

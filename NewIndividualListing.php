@@ -310,6 +310,9 @@ $imageDirectory = 'images/SingleListingPics/';
     }
     $imagePaths[] = $imageFolder . $imageIndex . '.jpg';
   }
+
+                              $images_url = json_decode($listingDataArray['images_url']);
+
   ?>
  
      <div class="slideshow-container">

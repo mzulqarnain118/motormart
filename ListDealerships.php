@@ -77,7 +77,7 @@
                         while($data =  mysqli_fetch_assoc($q_run)){
                         ?>
               <div class="col-sm-6 col-xl-4">
-              <a href="NewCarsListing.php?id=<?php echo $data['id']; ?>">
+              <a href="NewCarsListing.php?D_id=<?php echo $data['id']; ?>&CAT_ID=<?php echo $_GET['category_id']; ?>">
               <div class="car-listing">
                 <div class="thumb">
                     <img loading="lazy" style="width: 100%;" src="<?php echo getServerURL(); ?>admin/dealership_images/<?php echo $data['image']; ?>" />

@@ -84,13 +84,13 @@
     </div>
   </section>
 <?php
-  $id = $_GET['id'];
-  $sql = "SELECT * FROM `dealerships` WHERE `id` = '$id'";
+  $D_id = $_GET['D_id'];
+  $sql = "SELECT * FROM `dealerships` WHERE `id` = '$D_id'";
   $result = mysqli_query($con,$sql);
   $row = mysqli_fetch_array($result);
 ?>
  <div class="d-flex align-items-center mt-5">
-  <img loading="lazy" style="width: 100px; border-radius: 50%;margin-right:-70px;" src="<?php echo getServerURL(); ?>admin/dealership_images/<?php echo $row['image']; ?>" />
+  <img loading="lazy" style="width: 100px; border-radius: 50%;margin-right:34px;" src="<?php echo getServerURL(); ?>admin/dealership_images/<?php echo $row['image']; ?>" />
   <h2 class="breadcrumb_title"><?php echo $row['title']; ?></h2>
 </div>
 
@@ -324,13 +324,14 @@
          <div class="row">
     <?php
 
-$id = $_GET['id'];
-    $select = "SELECT *, m.title AS modelName,mk.title as model,b.title as bodyType
+$D_id = $_GET['D_id'];
+$CAT_ID = $_GET['CAT_ID'];
+    $select = "SELECT *,l.id as listingID, m.title AS modelName,mk.title as model,b.title as bodyType
 FROM listings AS l
 INNER JOIN models AS m ON m.id = l.model_id
 INNER JOIN makers AS mk ON mk.id = l.maker_id
 INNER JOIN body_type AS b ON b.id = l.body_type_id
-WHERE is_active = 1 AND dealership_id = $id  $str $str_price";
+WHERE is_active = 1 AND dealership_id = $D_id AND  category_id = $CAT_ID  $str $str_price";
                     
                   $q_run =  mysqli_query($con,$select);
                     if(mysqli_num_rows($q_run)>0){
@@ -339,7 +340,11 @@ WHERE is_active = 1 AND dealership_id = $id  $str $str_price";
         ?>
 
         <div class="col-sm-6 col-xl-4">
-<a href="NewIndividualListing.php?id=<?php echo $data['id']; ?>">
+<a href="<?php if ($CAT_ID == 24) {
+  echo "NewBikeIndividualListing.php?id=" . $data['listingID'];
+} else {
+  echo "NewIndividualListing.php?id=" . $data['listingID'];
+} ?>">
                 <div class="car-listing">
                   <div class="thumb">
                    

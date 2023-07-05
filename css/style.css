@@ -17725,7 +17725,6 @@ section.inner_page_section_spacing{
   background-color: #CF3E3B;
 }
 .preloader {
-  background-color: #ffffff;
   background-image: url("../images/bermuda_loader.png");
   background-position: center center;
   background-repeat: no-repeat;
@@ -17734,7 +17733,24 @@ section.inner_page_section_spacing{
   position: fixed;
   top: 0px;
   width: 100%;
-  z-index: 99999; }
+  z-index: 99999;
+
+  /* Animation properties */
+  animation-name: spinner;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 .scrollToHome:hover {
   color: #ffffff; }
