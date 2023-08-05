@@ -55,18 +55,6 @@ $faq = array(
       font-family: 'lt_streakregular', sans-serif !important;
     }
 
-    /* Section styles */
-    .section {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section h2 {
-      color: purple;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
 
     /* Card styles */
     .listCardEq-container {

@@ -388,12 +388,7 @@ i {
                     Weather BM
                   </a>
                 </li>
-              </ul>
-
-            </li>
-             <li> <a href="#"><span class="title">Hurricane Update</span></a>
-              <ul class="weather">
-                <li>
+                  <li>
                   <a href="https://www.bbc.com/weather/3573197" target="_blank">
                     <span><img src="images/icon/BBCWeather.png" alt="Icon 1"></span>
                     BBC Weather
@@ -402,10 +397,9 @@ i {
                 <li>
                   <a href="https://www.nhc.noaa.gov/gtwo.php" target="_blank">
                     <img src="images/icon/hurricane1.png" alt="Icon 2">
-                    NHC
+                    NHC [Hurricane]
                   </a>
                 </li>
-               
               </ul>
 
             </li>
@@ -610,11 +604,6 @@ i {
                   Weather BM
                 </a>
               </li>
-            </ul>
-
-          </li>
-            <li> <a href="#"><span class="title">Hurricane Update</span></a>
-              <ul class="weather">
                 <li>
                   <a href="https://www.bbc.com/weather/3573197" target="_blank">
                     <span><img src="images/icon/BBCWeather.png" alt="Icon 1"></span>
@@ -624,13 +613,13 @@ i {
                 <li>
                   <a href="https://www.nhc.noaa.gov/gtwo.php" target="_blank">
                     <img src="images/icon/hurricane1.png" alt="Icon 2">
-                    NHC
+                    NHC [Hurricane]
                   </a>
                 </li>
-               
-              </ul>
+            </ul>
 
-            </li>
+          </li>
+           
           <?php
               if(!isset($_SESSION['is_login'])){
               ?>

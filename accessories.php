@@ -281,7 +281,7 @@
 
               <div class="mbp_pagination mt20">
                 <div class="new_line_pagination text-center">
-                <?php //pagnination_btns($page_no,$previous_page,$total_no_of_pages,$next_page); ?>
+                                                  <?php pagnination_btns($page_no,$previous_page,$total_no_of_pages,$next_page); ?>
                   <!--<p>Showing 36 of 497 Results</p>
                   <div class="pagination_line"></div>
                   <a class="pagi_btn" href="#">Show More</a>-->

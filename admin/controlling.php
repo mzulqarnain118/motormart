@@ -254,7 +254,9 @@ if(isset($_POST['cmd'])){
             {
                 $mileage = 0;
             }
-
+            
+            $doors= isset($_POST['doors']) ? intval($_POST['doors']) : NULL;
+            $seats= isset($_POST['seats']) ? intval($_POST['seats']) : NULL;
             $cylinders = isset($_POST['cylinders']) ? $_POST['cylinders'] : '0';
             echo $cylinders;
             $want_featured = isset($_POST['want_featured']) ? 1 : 0;
@@ -265,7 +267,7 @@ if(isset($_POST['cmd'])){
             audioSE,exterior,interiorSE,illumination,driverAssistance,performanceSE,safetySecurity,
              images_url, features, want_featured)
             VALUES ('".$_POST['user_id']."', '".DBin($_POST['listing_title'])."', '".$_POST['listing_condition']."', '".$_POST['dealership_id']."', '".$_POST['category_id']."',
-            '".$_POST['maker_id']."', '".$_POST['model_id']."', '".$_POST['body_type_id']."', '".$_POST['price']."', '".$_POST['model_year']."', '".$_POST['doors']."', '".$_POST['seats']."', '".$_POST['feulType']."',
+            '".$_POST['maker_id']."', '".$_POST['model_id']."', '".$_POST['body_type_id']."', '".$_POST['price']."', '".$_POST['model_year']."', '$doors', '$seats', '".$_POST['feulType']."',
             '".$_POST['transmission']."', '$mileage', '".$_POST['engine_size']."', '$cylinders', '".$_POST['color']."',
             '".$_POST['city_id']."', '".DBin($_POST['name'])."', '".convert_uuencode($_POST['cardNumber'])."', '".$_POST['expiry']."', '".convert_uuencode($_POST['securityCode'])."', '".DBin($_POST['address'])."', '".DBin($_POST['description'])."',
             '".DBin($_POST['Reliability'])."', '".DBin($_POST['RunningCost'])."', '".DBin($_POST['Safety'])."', '".DBin($_POST['Interior'])."', '".DBin($_POST['Performance'])."', '$reviewRatings',

@@ -116,28 +116,31 @@ section {
 
 .car-info {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  /* align-items: center; */
   width: 77%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.crousal-container{
+.crousal-container {
   width: 77%;
 }
+
 .car-info>div {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
 }
+
 .crousal-container>div {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
 }
+
 .car-info>div>div {
   flex-basis: 50%;
 }
@@ -253,7 +256,7 @@ img {
 }
 
 .container1 {
-width: 2400px;
+  width: 2400px;
   height: 400px;
 }
 
@@ -283,7 +286,7 @@ INNER JOIN body_type AS b ON b.id = l.body_type_id WHERE l.id = '$id'";
   ?>
 
 <section class="crousal-container">
-  <div class="row" >
+  <div class="row">
     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12" style="width:60%;">
       <div class="container1">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -296,17 +299,23 @@ INNER JOIN body_type AS b ON b.id = l.body_type_id WHERE l.id = '$id'";
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
-            <div class="item active">
-              <img src="./images/BMW/1.jpg" alt="Los Angeles">
+            <?php foreach ($images_url as $index => $image_url): ?>
+            <div class="item <?php echo ($index === 0) ? 'active' : ''; ?>">
+              <img src="<?php echo getServerURL(); ?>admin/listing_images/<?php echo $image_url; ?>"
+                alt="<?php echo $image_url; ?>">
+            </div>
+            <?php endforeach; ?>
+            <!-- <div class="item active">
+          <img src="<?php echo getServerURL(); ?>admin/listing_images/<?php echo $images_url[0]; ?>" alt="<?php echo $images_url[0]; ?>">
             </div>
 
             <div class="item">
-              <img src="./images/BMW/2.jpg" alt="Los Angeles">
+          <img src="<?php echo getServerURL(); ?>admin/listing_images/<?php echo $images_url[1]; ?>" alt="<?php echo $images_url[1]; ?>">
             </div>
 
             <div class="item">
-              <img src="./images/BMW/3.jpg" alt="Los Angeles">
-            </div>
+          <img src="<?php echo getServerURL(); ?>admin/listing_images/<?php echo $images_url[2]; ?>" alt="<?php echo $images_url[2]; ?>">
+            </div> -->
           </div>
 
           <!-- Left and right controls -->
@@ -319,34 +328,31 @@ INNER JOIN body_type AS b ON b.id = l.body_type_id WHERE l.id = '$id'";
             <span class="sr-only">Next</span>
           </a>
         </div>
-        
+
       </div>
-      
+
     </div>
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12" style="width:40%;">
       <div>
-      <h1>BRAND NEW</h1>
-        <h1><strong><?php echo $listingDataArray['model']; ?> <?php echo $listingDataArray['modelName']; ?></strong></h1>
+        <h1>BRAND NEW</h1>
+        <h1><strong><?php echo $listingDataArray['model']; ?> <?php echo $listingDataArray['modelName']; ?></strong>
+        </h1>
         <p><?php echo $listingDataArray['model']; ?> </p>
         <p><?php echo $listingDataArray['model_year']; ?> </p>
-       <h1><strong> £<?php echo $listingDataArray['price']; ?> p/m</strong></h1>
+        <h1><strong> £<?php echo $listingDataArray['price']; ?> p/m</strong></h1>
       </div>
     </div>
   </div>
 </section>
 
 <section class="car-info">
- 
+
   <div>
-    <div class="d-flex justify-between">
-    <ul class="list-group list-group-flush">
-  <li class="list-group-item d-flex justify-between"><p>hshsh</p><p>hshsh</p></li>
-  <li class="list-group-item">A second item</li>
-</ul>
-   <ul class="list-group list-group-flush">
-  <li class="list-group-item">An item</li>
-  <li class="list-group-item">A second item</li>
-</ul>
+    <div class="d-flex justify-evenly ">
+      <div>work</div>
+      <div>hard</div>
+      <div>until</div>
+      <div>succed</div>
     </div>
     <div class="overview">
 
@@ -368,7 +374,7 @@ INNER JOIN body_type AS b ON b.id = l.body_type_id WHERE l.id = '$id'";
 
         <div>
           <p><?php echo $listingDataArray['description']; ?> </p>
-          <?php
+          <!-- <?php
 $rating = trim($ratingsArray[0], '"');
 echo '<div class="rating-box">';
 echo '<div class="ratings">' . $rating . '/5</div>';
@@ -376,7 +382,7 @@ for ($i = 0; $i < $rating; $i++) {
   echo '<span class="fi fi-ss-star"></span>';
 }
 echo '</div>';
-?>
+?> -->
 
         </div>
       </div>

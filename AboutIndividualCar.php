@@ -7,7 +7,69 @@
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
   }
+  @media screen and (max-width: 768px) {
+   .viewByCategoryContent{
+      width: 100%;
+      display : flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+       .viewByCategoryContent {
+      text-align: center; /* Center content on mobile */
+    }
 
+    .viewByCategoryContent > div {
+      display: none;
+      margin: 20px auto; /* Add margin for centering */
+      width: 100%; /* Occupy full width on mobile */
+    }
+
+    /* Adjust the styles for the h1 elements */
+    .viewByCategoryContent h1,.viewByCategoryContent h1 p {
+      font-size: 20px; /* Adjust the font size */
+      margin: 10px 0; /* Add spacing around the h1 elements */
+      word-wrap: break-word; /* Wrap long words to the next line */
+    }
+
+    .container1 {
+      max-width: 100%; /* Occupy full width on smaller screens */
+      padding: 20px;
+    }
+
+    .row {
+      flex-direction: column; /* Stack columns on smaller screens */
+    }
+
+    .col-6 {
+      width: 100%; /* Occupy full width on smaller screens */
+    }
+      .category li .card-button {
+        width: 100%; /* Make card buttons full width on mobile */
+        text-align: center;
+      }
+      .category li.active .card-button{
+        margin-left: 341px;
+      }
+      .car-summary {
+        width: 100%; /* Make car-summary section full width on mobile */
+      }
+
+      .car-summary img {
+        max-width: 100%; /* Make car-summary image full width on mobile */
+        margin-right: 0; /* Remove margin on mobile */
+      }
+
+      .car-review p,
+      .car-review h2 {
+        width: auto; /* Allow text to flow naturally on mobile */
+      }
+
+      .car-summary p,
+      .car-review h2 {
+        font-size: 16px; /* Adjust font size for better readability on mobile */
+      }
+    }
   .container1 {
     max-width: 50%;
     margin: 0 auto;
@@ -132,16 +194,19 @@
   .category li.active .card-button::after {
     border-left-color: #4B0082;
   }
+  
   </style>
 </head>
 
 <body>
- 
+    <div class="section">
+            <h2>Read the review by category</h2>
+          </div>
   <section class="container1">
     <div class="row">
       <div class="col-6">
         <div class="category">
-          <h2>Read the review by category</h2>
+      
           <div>
             <ul>
               <li class="active">
@@ -250,20 +315,20 @@
 
         if (otherButton !== button) {
           otherLi.classList.remove('active');
-         otherButton.style.backgroundColor = '#800080';
+          otherButton.style.backgroundColor = '#800080';
           otherButton.style.color = '#fff';
         }
       });
 
-   li.classList.add('active');
+      li.classList.add('active');
       button.style.backgroundColor = '#4B0082';
       button.style.color = '#fff';
-        });
+    });
   });
 
   // Automatically select the first category
   categoryButtons[0].click();
-</script>
+  </script>
 
 </body>
 

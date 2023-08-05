@@ -126,7 +126,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <select class="form-control" name='dealership_id' onchange="dealership_select(this.value)"
                         id="dealership_id"
                         style="background-color: transparent; border: 1px solid #eaeaea; border-radius: 8px; font-size:  13px;"
-                        required>
+                        >
                         <option value="0">Select</option>
                         <?php
 $select = "select * from dealerships  order by title asc ";
@@ -145,7 +145,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <label class="form-label">Fuel Type</label>
                       <select class="form-control" name="feulType" onchange="fuel_type_select(this.value)"
                         style="background-color: transparent; border: 1px solid #eaeaea; border-radius: 8px; font-size:  13px;"
-                        required>
+                        >
                         <option value="">Select</option>
                         <?php
       $fuelTypes = array( 'Gasoline',
@@ -165,13 +165,13 @@ if (mysqli_num_rows($q_run) > 0) {
                   <div class="col-sm-6 col-md-4" id="seats_id_block">
                     <div class="mb20">
                       <label class="form-label">Number of Seats</label>
-                      <input name="seats" class="form-control form_control" type="number" placeholder="5" required>
+                      <input name="seats" class="form-control form_control" type="number" placeholder="5" >
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-4" id="doors_id_block">
                     <div class="mb20">
                       <label class="form-label">Number of Doors</label>
-                      <input name="doors" class="form-control form_control" type="number" placeholder="4" required>
+                      <input name="doors" class="form-control form_control" type="number" >
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-4">
@@ -257,7 +257,7 @@ for ($i = date('Y'); $i > 1989; $i--) {
                       <select class="selectpicker" name="transmission" data-live-search="true" data-width="100%"
                         required>
                         <option>Select</option>
-                        <option data-tokens="Autometic">Autometic</option>
+                        <option data-tokens="Automatic">Automatic</option>
                         <option data-tokens="Manual">Manual</option>
                       </select>
                     </div>
@@ -382,11 +382,11 @@ if (mysqli_num_rows($q_run) > 0) {
                     <div class="faq-form row d-flex align-items-center">
                       <div class="col-sm-5 col-md-5">
                         <input class="form-control form_control" type="text" name="questions[]"
-                          placeholder="Enter question" required>
+                          placeholder="Enter question" >
                       </div>
                       <div class="col-sm-5 col-md-5">
                         <input class="form-control form_control" type="text" name="answers[]" placeholder="Enter answer"
-                          required>
+                          >
                       </div>
                       <div class="col-sm-2 col-md-2">
                         <button type="button" onclick="addFAQ()">+</button>
@@ -401,7 +401,7 @@ if (mysqli_num_rows($q_run) > 0) {
                     <div class="faq-form row d-flex align-items-center">
                       <div class="col-sm-10 col-md-10">
                         <input class="form-control form_control" type="text" name="audioSE[]"
-                          placeholder="Enter Audio and Communications" required>
+                          placeholder="Enter Audio and Communications" >
                       </div>
 
                       <div class="col-sm-2 col-md-2">
@@ -418,7 +418,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="exterior[]"
-                            placeholder="Enter Exterior" required>
+                            placeholder="Enter Exterior" >
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -435,7 +435,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="interiorSE[]"
-                            placeholder="Enter Interior" required>
+                            placeholder="Enter Interior" >
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -452,7 +452,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="illumination[]"
-                            placeholder="Enter Illumination" required>
+                            placeholder="Enter Illumination" >
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -469,7 +469,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="driverAssistance[]"
-                            placeholder="Enter Driver Assistance" required>
+                            placeholder="Enter Driver Assistance" >
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -486,7 +486,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="performanceSE[]"
-                            placeholder="Enter Performance" required>
+                            placeholder="Enter Performance" >
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -503,7 +503,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="safetySecurity[]"
-                            placeholder="Enter Safety and Security" required>
+                            placeholder="Enter Safety and Security" >
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -745,7 +745,6 @@ function addFAQ() {
   questionInput.type = "text";
   questionInput.name = "questions[]";
   questionInput.placeholder = "Enter question";
-  questionInput.required = true;
 
   questionInputDiv.appendChild(questionInput);
 
@@ -757,7 +756,6 @@ function addFAQ() {
   answerInput.type = "text";
   answerInput.name = "answers[]";
   answerInput.placeholder = "Enter answer";
-  answerInput.required = true;
 
   answerInputDiv.appendChild(answerInput);
 
