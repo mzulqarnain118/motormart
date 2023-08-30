@@ -1,6 +1,6 @@
 
   <!-- Our Footer -->
-  <section class="footer_one pt50 pb25">
+  <section class="footer_one pt50 pb25" style="margin-top:30px;">
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-xl-7">

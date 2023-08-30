@@ -65,7 +65,7 @@ $faq = array(
     .listCard {
       background-color: white;
       padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 3px;
           width: 521px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -90,9 +90,13 @@ $faq = array(
       transition: color 0.3s ease-in-out;
     }
    
-    .listCard:hover{
-            border: 1px solid purple;
+   .listCard {
+        border-left: 0; /* Initially no border on the left */
+        transition: border-left 0.3s; /* Add transition for smooth effect */
+    }
 
+    .listCard:hover {
+        border-left: 6px solid purple; /* Add left border on hover */
     }
     .question:hover,
     .question.open {
@@ -128,8 +132,9 @@ $faq = array(
 <body>
   <?php echo $html; ?>
 
-  <div class="section">
-    <h2>FAQs</h2>
+  <div class="section" >
+    <h2 style="    font-size: xx-large;
+    margin-top: 90px;">FAQs</h2>
   </div>
 
   <?php foreach ($faq as $index => $item) { ?>

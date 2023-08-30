@@ -1,352 +1,369 @@
 <?php 
  include_once("header.php"); 
  ?>
-<link rel="stylesheet" href="fonts/stylesheet.css">
+<head>
 
-<style>
-h1,
-h2,
-h3,
-h4,
-.h1,
-.h2,
-.h3,
-.h4 {
-  font-weight: 400 !important;
-}
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <link rel="stylesheet" href="fonts/stylesheet.css">
 
-h6 {
-  font-family: 'lt_streakbold', sans-serif !important;
-  font: weight 50px;
-}
-
-p,
-div {
-  font-family: 'lt_streakmedium', sans-serif !important;
-  font-size: 20px;
-}
-
-.custom-font {
-  font-family: 'lt_streakextra_bold', sans-serif !important;
-}
-
-body {
-  font-family: 'lt_streakregular', sans-serif !important;
-}
-
-.review {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px !important;
-  ;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-/* Media query for screens with width less than or equal to 768px (typical tablet or mobile width) */
-@media screen and (max-width: 768px) {
-  .mySlides .slide {
-    display: none;
-    /* Hide all slides initially */
+  <style>
+  h1,
+  h2,
+  h3,
+  h4,
+  .h1,
+  .h2,
+  .h3,
+  .h4 {
+    font-weight: 400 !important;
   }
 
-  .mySlides .slide:first-child {
-    display: block;
-    /* Show only the first slide on mobile */
+  h6 {
+    font-family: 'lt_streakbold', sans-serif !important;
+    font: weight 50px;
   }
-   .mySlides .slide:first-child > img {
-        max-width: 100%; /* Make the image full width */
-        margin-right: 0;
-        margin-bottom: 10px; /* Add some space between image and content */
-        }
-      .car-info {
-        padding: 10px; /* Reduce padding for smaller screens */
-      }
 
-      .car-info img {
-        max-width: 100%; /* Make the image full width */
-        margin-right: 0;
-        margin-bottom: 10px; /* Add some space between image and content */
-      }
+  p,
+  div {
+    font-family: 'lt_streakmedium', sans-serif !important;
+    font-size: 20px;
+  }
 
-      .overview1 {
-        width: 100%;
-      }
-  /* Adjust styles for navigation buttons if needed */
-}
+  .custom-font {
+    font-family: 'lt_streakextra_bold', sans-serif !important;
+  }
 
-.review h2 {
-  font-size: 24px;
-  margin: 0;
-  margin-bottom: 10px;
+  body {
+    font-family: 'lt_streakregular', sans-serif !important;
+  }
 
-}
+  .review {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px !important;
+    ;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
 
-.rating-box {
-  display: inline-block;
-  margin-right: 10px;
-}
+   .star-golden {
+        color: goldenrod; /* Or any other golden color you prefer */
+    }
+  /* Media query for screens with width less than or equal to 768px (typical tablet or mobile width) */
+  @media screen and (max-width: 768px) {
+    .slideshow-container {
+    width: 100vw !important;
+        margin: auto;
+        position: static !important;
+    border: none;
+    }
+    .mySlides .slide {
+      display: none;
+      width: 108vw;
+      /* Hide all slides initially */
+    }
 
-.rating-box .ratings {
-  display: inline-block;
-  background-color: purple;
-  border-radius: 5px;
-  padding: 5px;
-  margin-right: 10px;
-  color: #fff;
-  width: 48px;
-}
+    .mySlides .slide:first-child {
+      display: block;
+      /* Show only the first slide on mobile */
+    }
 
-.review p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-}
+    .mySlides .slide:first-child>img {
+      max-width: 100%;
+      /* Make the image full width */
+      margin-right: 0;
+      margin-bottom: 10px;
+      /* Add some space between image and content */
+    }
 
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 43px 0 !important;
-}
+    .car-info {
+      width: 100% !important;
+    }
 
-.gallery {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 10px;
-  align-self: center;
-  margin: 0 auto;
-}
+    .car-info img {
+      max-width: 100%;
+      /* Make the image full width */
+      margin-right: 0;
+      margin-bottom: 10px;
+      /* Add some space between image and content */
+    }
 
+    .overview1 {
+      width: 100%;
+      margin-top: 100px !important;
+    }
 
+    .overview div {
+      display: flex;
+      flex-direction: column;
+      /* Stack items in a column on mobile */
+    }
 
-/* Section styles */
-.section {
-  text-align: center;
-  margin-bottom: 40px;
-}
+    .overview div p {
+      margin-bottom: 10px;
+      /* Add spacing between stacked items */
+    }
 
-.section h2 {
-  color: purple;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    .car-info>div {
+      flex-direction: column;
+    }
 
-.card {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 10px;
-}
+    /* Adjust styles for navigation buttons if needed */
+  }
 
-.card img {
-  width: 440px;
-  height: 250px;
-}
+  .review h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 10px;
 
-@media screen and (max-width: 768px) {
-  .overview div {
+  }
+
+  .rating-box {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .rating-box .ratings {
+    display: inline-block;
+    background-color: purple;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+    color: #fff;
+    width: 48px;
+  }
+
+  .review p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  section {
     display: flex;
     flex-direction: column;
-    /* Stack items in a column on mobile */
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 43px 0 !important;
   }
 
-  .overview div p {
+  .gallery {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    align-self: center;
+    margin: 0 auto;
+  }
+
+
+
+  /* Section styles */
+  .section {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section h2 {
+    color: purple;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
-    /* Add spacing between stacked items */
   }
 
-  /* Adjust other styles as needed */
-}
+  .card {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+  }
 
-.car-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 77%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.car-info>div {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.car-info>div>div {
-  flex-basis: 50%;
-}
-
-.chevron {
-  background-color: rgba(128, 0, 128, 0.8);
-  color: #fff;
-  width: 40px;
-  position: absolute;
-  height: 40px;
-  top: 57%;
-  z-index: 1;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.chevron:hover {
-  background-color: rgba(128, 0, 128, 1);
-}
-
-.overview1 {
-  width: 574px;
-  padding: 57px;
-}
+  .card img {
+    width: 440px;
+    height: 250px;
+  }
 
 
-.overview {
-  width: 574px;
-  background-color: #F2F6FC;
-  padding: 37px;
-}
+  .car-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 77%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.mySlides {
-  display: none;
-  width: 100%;
-  overflow: hidden;
-}
+  .car-info>div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 
-.slide {
-  width: 30%;
-  float: left;
-  margin-left: 16px
-}
+  .car-info>div>div {
+    flex-basis: 50%;
+  }
 
-.slide>img {
-  height: 242px;
-}
+  .chevron {
+    background-color: rgba(128, 0, 128, 0.8);
+    color: #fff;
+    width: 40px;
+    position: absolute;
+    height: 40px;
+    top: 57%;
+    z-index: 1;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-img {
-  vertical-align: middle;
-  width: 100%;
-}
-
-.slideshow-container {
-  width: 77%;
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-}
-
-.next {
-  background-color: white;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: black;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 3px 0 0 3px;
-  user-select: none;
-}
-
-.prev {
-  background-color: white;
-  margin-left: 16px;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: black;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 3px 0 0 3px;
-  user-select: none;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(128, 0, 128, 1);
-}
-
-.external-div {
-  width: 130%;
-}
-
-.overview>p {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .chevron:hover {
+    background-color: rgba(128, 0, 128, 1);
+  }
 
 
 
-.ratings .rating-card {
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
+  .overview {
+    width: 574px;
+    background-color: #F2F6FC;
+    padding: 37px;
+  }
 
-.ratings .rating-card:hover {
-  background-color: #f5f5f5;
-}
+  .mySlides {
+    display: none;
+    width: 100%;
+    overflow: hidden;
+  }
 
-.ratings .rating-card.selected {
-  background-color: #800080;
-  color: #ffffff;
-}
+  .slide {
+    width: 30%;
+    float: left;
+    margin-left: 16px
+  }
 
-.running-costs {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+  .slide>img {
+    height: 400px;
+  }
 
-.running-costs .running-cost-card {
-  flex-basis: calc(50% - 10px);
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
+  img {
+    vertical-align: middle;
+    width: 100%;
+  }
 
-.running-costs .running-cost-card h4 {
-  margin-top: 0;
-}
+  .slideshow-container {
+    width: 77%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+  }
 
-.running-costs .running-cost-card .rating {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-}
+  .next {
+    background-color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px 0 0 3px;
+    user-select: none;
+  }
 
-.running-costs .running-cost-card .rating i {
-  color: #ffa500;
-  margin-right: 5px;
-}
-</style>
+  .prev {
+    background-color: white;
+    margin-left: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px 0 0 3px;
+    user-select: none;
+  }
 
-<head>
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(128, 0, 128, 1);
+  }
+
+  .external-div {
+    width: 130%;
+  }
+
+  .overview>p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  .ratings .rating-card {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  .ratings .rating-card:hover {
+    background-color: #f5f5f5;
+  }
+
+  .ratings .rating-card.selected {
+    background-color: #800080;
+    color: #ffffff;
+  }
+
+  .running-costs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .running-costs .running-cost-card {
+    flex-basis: calc(50% - 10px);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .running-costs .running-cost-card h4 {
+    margin-top: 0;
+  }
+
+  .running-costs .running-cost-card .rating {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .running-costs .running-cost-card .rating i {
+    color: #ffa500;
+    margin-right: 5px;
+  }
+  </style>
 </head>
+
+
 <section style="display:flex;flex-direction:column;align-items:center">
   <?php
 $id = $_GET['id'];
@@ -547,15 +564,20 @@ $imageDirectory = 'images/SingleListingPics/';
 
         <div>
           <p><?php echo $listingDataArray['description']; ?> </p>
-          <?php
+<?php
 $rating = trim($ratingsArray[0], '"');
 echo '<div class="rating-box">';
 echo '<div class="ratings">' . $rating . '/5</div>';
-for ($i = 0; $i < $rating; $i++) {
-  echo '<span class="fi fi-ss-star"></span>';
+for ($i = 0; $i < 5; $i++) {
+    if ($i < $rating) {
+        echo '<span class="fi fi-ss-star star-golden"></span>';
+    } else {
+        echo '<span class="fi fi-ss-star"></span>';
+    }
 }
 echo '</div>';
 ?>
+
 
         </div>
       </div>

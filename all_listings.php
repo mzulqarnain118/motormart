@@ -168,8 +168,8 @@
                       <h5 class="subtitle">Transmission</h5>
                       <div class="ui_kit_checkbox">
                         <div class="form-check mb20">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckAutometicSbp">
-                          <label class="form-check-label" for="flexCheckAutometicSbp">Automatic (6,676)</label>
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckAutomaticSbp">
+                          <label class="form-check-label" for="flexCheckAutomaticSbp">Automatic (6,676)</label>
                         </div>
                         <div class="form-check mb30">
                           <input class="form-check-input" type="checkbox" value="" id="flexCheckManualSbp">
@@ -378,8 +378,8 @@
                     <h5 class="subtitle">Transmission</h5>
                     <div class="ui_kit_checkbox">
                       <div class="form-check mb20">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckAutometic">
-                        <label class="form-check-label" for="flexCheckAutometic">Automatic (6,676)</label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckAutomatic">
+                        <label class="form-check-label" for="flexCheckAutomatic">Automatic (6,676)</label>
                       </div>
                       <div class="form-check mb30">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckManual">

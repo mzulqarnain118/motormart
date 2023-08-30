@@ -9,29 +9,30 @@
   }
   @media screen and (max-width: 768px) {
    .viewByCategoryContent{
-      width: 100%;
+      width: 100vw;
       display : flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
    }
-       .viewByCategoryContent {
+     .viewByCategoryContent {
       text-align: center; /* Center content on mobile */
     }
-
+   
+    .overview1 p{
+      margin: 20px auto;
+    }
     .viewByCategoryContent > div {
-      display: none;
       margin: 20px auto; /* Add margin for centering */
-      width: 100%; /* Occupy full width on mobile */
+      width: 342px; /* Occupy full width on mobile */
     }
 
     /* Adjust the styles for the h1 elements */
-    .viewByCategoryContent h1,.viewByCategoryContent h1 p {
+    .viewByCategoryContent h1,.viewByCategoryContent p {
       font-size: 20px; /* Adjust the font size */
       margin: 10px 0; /* Add spacing around the h1 elements */
       word-wrap: break-word; /* Wrap long words to the next line */
     }
-
     .container1 {
       max-width: 100%; /* Occupy full width on smaller screens */
       padding: 20px;
@@ -200,7 +201,8 @@
 
 <body>
     <div class="section">
-            <h2>Read the review by category</h2>
+            <h2 style="    font-size: xx-large;
+    margin-top: 90px;">Read the review by category</h2>
           </div>
   <section class="container1">
     <div class="row">

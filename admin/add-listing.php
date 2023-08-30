@@ -125,8 +125,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <label class="form-label">Dealership</label>
                       <select class="form-control" name='dealership_id' onchange="dealership_select(this.value)"
                         id="dealership_id"
-                        style="background-color: transparent; border: 1px solid #eaeaea; border-radius: 8px; font-size:  13px;"
-                        >
+                        style="background-color: transparent; border: 1px solid #eaeaea; border-radius: 8px; font-size:  13px;">
                         <option value="0">Select</option>
                         <?php
 $select = "select * from dealerships  order by title asc ";
@@ -144,8 +143,7 @@ if (mysqli_num_rows($q_run) > 0) {
                     <div class="ui_kit_select_search add_new_property mb20">
                       <label class="form-label">Fuel Type</label>
                       <select class="form-control" name="feulType" onchange="fuel_type_select(this.value)"
-                        style="background-color: transparent; border: 1px solid #eaeaea; border-radius: 8px; font-size:  13px;"
-                        >
+                        style="background-color: transparent; border: 1px solid #eaeaea; border-radius: 8px; font-size:  13px;">
                         <option value="">Select</option>
                         <?php
       $fuelTypes = array( 'Gasoline',
@@ -165,13 +163,13 @@ if (mysqli_num_rows($q_run) > 0) {
                   <div class="col-sm-6 col-md-4" id="seats_id_block">
                     <div class="mb20">
                       <label class="form-label">Number of Seats</label>
-                      <input name="seats" class="form-control form_control" type="number" placeholder="5" >
+                      <input name="seats" class="form-control form_control" type="number" placeholder="5">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-4" id="doors_id_block">
                     <div class="mb20">
                       <label class="form-label">Number of Doors</label>
-                      <input name="doors" class="form-control form_control" type="number" >
+                      <input name="doors" class="form-control form_control" type="number">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-4">
@@ -382,11 +380,11 @@ if (mysqli_num_rows($q_run) > 0) {
                     <div class="faq-form row d-flex align-items-center">
                       <div class="col-sm-5 col-md-5">
                         <input class="form-control form_control" type="text" name="questions[]"
-                          placeholder="Enter question" >
+                          placeholder="Enter question">
                       </div>
                       <div class="col-sm-5 col-md-5">
-                        <input class="form-control form_control" type="text" name="answers[]" placeholder="Enter answer"
-                          >
+                        <input class="form-control form_control" type="text" name="answers[]"
+                          placeholder="Enter answer">
                       </div>
                       <div class="col-sm-2 col-md-2">
                         <button type="button" onclick="addFAQ()">+</button>
@@ -401,7 +399,7 @@ if (mysqli_num_rows($q_run) > 0) {
                     <div class="faq-form row d-flex align-items-center">
                       <div class="col-sm-10 col-md-10">
                         <input class="form-control form_control" type="text" name="audioSE[]"
-                          placeholder="Enter Audio and Communications" >
+                          placeholder="Enter Audio and Communications">
                       </div>
 
                       <div class="col-sm-2 col-md-2">
@@ -418,7 +416,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="exterior[]"
-                            placeholder="Enter Exterior" >
+                            placeholder="Enter Exterior">
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -435,7 +433,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="interiorSE[]"
-                            placeholder="Enter Interior" >
+                            placeholder="Enter Interior">
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -452,7 +450,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="illumination[]"
-                            placeholder="Enter Illumination" >
+                            placeholder="Enter Illumination">
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -469,7 +467,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="driverAssistance[]"
-                            placeholder="Enter Driver Assistance" >
+                            placeholder="Enter Driver Assistance">
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -486,7 +484,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="performanceSE[]"
-                            placeholder="Enter Performance" >
+                            placeholder="Enter Performance">
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -503,7 +501,7 @@ if (mysqli_num_rows($q_run) > 0) {
                       <div class="faq-form row d-flex align-items-center">
                         <div class="col-sm-10 col-md-10">
                           <input class="form-control form_control" type="text" name="safetySecurity[]"
-                            placeholder="Enter Safety and Security" >
+                            placeholder="Enter Safety and Security">
                         </div>
 
                         <div class="col-sm-2 col-md-2">
@@ -1041,22 +1039,22 @@ function category_select(id) {
   if (id == 9 || id == 10 || id == 11 || id == 12) {
     $('#body_type_id').hide();
   } else if (id == 24) {
-       $("#RunningCost").hide();
-      $("#Performance").hide();
-      $("#Safety").hide();
-      $("#Interior").hide();
-      $("#Reliability").hide();
-      $("#ratings_id_block").hide();
-      $("#faqs_id_block").hide();
-      $("#faq-container").hide();
-      $("#audioSE-container").hide();
-      $("#SE-Sections").hide();
-         $('#seats_id_block').hide();
-      $('#doors_id_block').hide();
-      $('#cylinders-id-block').hide();
-             
+    $("#RunningCost").hide();
+    $("#Performance").hide();
+    $("#Safety").hide();
+    $("#Interior").hide();
+    $("#Reliability").hide();
+    $("#ratings_id_block").hide();
+    $("#faqs_id_block").hide();
+    $("#faq-container").hide();
+    $("#audioSE-container").hide();
+    $("#SE-Sections").hide();
+    $('#seats_id_block').hide();
+    $('#doors_id_block').hide();
+    $('#cylinders-id-block').hide();
 
-  }else {
+
+  } else {
     $('#body_type_id').show();
   }
 }

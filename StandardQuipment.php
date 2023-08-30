@@ -65,7 +65,7 @@ $faq = array(
     .listCardEq {
       background-color: white;
       padding: 20px;
-      margin-bottom: 20px;
+margin-bottom: 3px;
       width: 521px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -90,10 +90,14 @@ $faq = array(
       transition: color 0.3s ease-in-out;
     }
 
-    .listCardEq:hover {
-      border: 1px solid purple;
+   .listCardEq {
+        border-left: 0; /* Initially no border on the left */
+        transition: border-left 0.3s; /* Add transition for smooth effect */
     }
 
+    .listCardEq:hover {
+        border-left: 6px solid purple; /* Add left border on hover */
+    }
     .questionEq:hover,
     .questionEq.open {
       color: purple;
@@ -140,7 +144,8 @@ $faq = array(
   <?php echo $html; ?>
 
   <div class="section">
-    <h2>Standard equipment</h2>
+    <h2 style="    font-size: xx-large;
+    margin-top: 90px;">Standard equipment</h2>
   </div>
 
   <?php foreach ($faq as $index => $item) { ?>

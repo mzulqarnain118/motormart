@@ -189,7 +189,7 @@ i {
             <?php
           }else{
           ?>
-            <img class="logo1 img-fluid" loading="lazy" src="images/color_logo.png" style="width: 120px;"
+            <img class="logo1 img-fluid" loading="lazy" src="images/color_logo.png" style="width: 120px; margin-top:15px;"
               alt="site_logo">
             <?php
           }
@@ -356,7 +356,7 @@ i {
 
               </ul>
             </li>
-            <li> <a href="#"><span class="title">Weather</span></a>
+            <li> <a href="Weather.php"><span class="title">Weather</span></a>
               <ul class="weather">
                 <li>
                   <a href="https://Spaghettimodels.com" target="_blank">
@@ -571,7 +571,7 @@ i {
           <li class="add_listing"><a href="admin/add-accessory.php">+ Add Accessories</a></li>
           <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id']==1){ ?><li class="add_listing"><a
               href="admin/add-service.php">+ Add Services</a></li><?php } ?>
-          <li class="onClickAction"> <a href="#"><span class="title">Weather</span></a>
+          <li class="onClickAction"> <a href="Weather.php"><span class="title">Weather</span></a>
             <!-- Level Two-->
             <ul class="weather">
               <li>

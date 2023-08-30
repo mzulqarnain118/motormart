@@ -356,7 +356,9 @@ echo $insert; // Debugging statement to check the generated query
             if(isset($_POST['cylinders'])){
                 $cylinders = $_POST['cylinders'];
             }
-            
+                        $reviewRatings = json_encode($_POST['ReviewRatings']);
+
+
             /****VERIFICATION FILE***/
             $veri_file = "";
             if(isset($_FILES['veri_file']['name']) && $_FILES['veri_file']['name']!=""){
@@ -365,13 +367,49 @@ echo $insert; // Debugging statement to check the generated query
             }
             
             
-            $update = "update listings set listing_title='".DBin($_POST['listing_title'])."',listing_condition='".$_POST['listing_condition']."',dealership_id='".$_POST['dealership_id']."',category_id='".$_POST['category_id']."',
-            maker_id='$maker_id',model_id='".$_POST['model_id']."',body_type_id='".$_POST['body_type_id']."',price='".$_POST['price']."',model_year='".$_POST['body_type_id']."',
-            transmission='".$_POST['transmission']."',
-            doors='".$_POST['doors']."',seats='".$_POST['seats']."',feulType='".$_POST['feulType']."',
-            mileage='".$_POST['mileage']."',engine_size='".$_POST['engine_size']."',cylinders='$cylinders',color='".$_POST['color']."',accessory_type='$accessory_type',service_type='$service_type',city_id='".$_POST['city_id']."',
-            address='".DBin($_POST['address'])."',description='".DBin($_POST['description'])."', 
-            images_url='".json_encode($img_array_merge)."', features='$features',verification_file='$veri_file' where id='".$_POST['id']."'";
+           $update = "UPDATE listings SET 
+    listing_title='" . DBin($_POST['listing_title']) . "', 
+    listing_condition='" . $_POST['listing_condition'] . "', 
+    dealership_id='" . $_POST['dealership_id'] . "', 
+    category_id='" . $_POST['category_id'] . "', 
+    maker_id='$maker_id', 
+    model_id='" . $_POST['model_id'] . "', 
+    body_type_id='" . $_POST['body_type_id'] . "', 
+    price='" . $_POST['price'] . "', 
+    model_year='" . $_POST['model_year'] . "', 
+    transmission='" . $_POST['transmission'] . "', 
+    doors='" . $_POST['doors'] . "', 
+    seats='" . $_POST['seats'] . "', 
+    feulType='" . $_POST['feulType'] . "', 
+    mileage='" . $_POST['mileage'] . "', 
+    engine_size='" . $_POST['engine_size'] . "', 
+    cylinders='$cylinders', 
+    color='" . $_POST['color'] . "', 
+    accessory_type='$accessory_type', 
+    service_type='$service_type', 
+    city_id='" . $_POST['city_id'] . "', 
+    address='" . DBin($_POST['address']) . "', 
+    description='" . DBin($_POST['description']) . "', 
+    images_url='" . json_encode($img_array_merge) . "', 
+    features='$features', 
+    verification_file='$veri_file', 
+    Reliability='" . DBin($_POST['Reliability']) . "', 
+    RunningCost='" . DBin($_POST['RunningCost']) . "', 
+    Safety='" . DBin($_POST['Safety']) . "', 
+    Interior='" . DBin($_POST['Interior']) . "', 
+    Performance='" . DBin($_POST['Performance']) . "', 
+    ReviewRatings='$reviewRatings', 
+    questions='" . json_encode($_POST['questions']) . "', 
+    answers='" . json_encode($_POST['answers']) . "', 
+    audioSE='" . json_encode($_POST['audioSE']) . "', 
+    exterior='" . json_encode($_POST['exterior']) . "', 
+    interiorSE='" . json_encode($_POST['interiorSE']) . "', 
+    illumination='" . json_encode($_POST['illumination']) . "', 
+    driverAssistance='" . json_encode($_POST['driverAssistance']) . "', 
+    performanceSE='" . json_encode($_POST['performanceSE']) . "', 
+    safetySecurity='" . json_encode($_POST['safetySecurity']) . "' 
+    WHERE id='" . $_POST['id'] . "'";
+
               if(mysqli_query($con,$update)){
                 $_SESSION['succes_sc'] = "<b>Success:</b> Listing updated successfully.";
                 header("Location:edit-listing.php?id=".$_POST['id']); 
